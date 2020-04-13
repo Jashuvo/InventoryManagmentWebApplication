@@ -1,38 +1,40 @@
 ﻿@model InventoryManagmentWebApplication.role
 
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+</html>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+<h1 style="font-family:'Segoe UI Light'">Role Management</h1>
     <div class="form-horizontal">
-        <h4>role</h4>
+        <h4>Role</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.r_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.r_name, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.r_name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.r_name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.r_status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.r_status, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.LabelFor(model => model.r_status, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.r_status, ViewBag.abc as SelectList, htmlAttributes : new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.r_status, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-4 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>

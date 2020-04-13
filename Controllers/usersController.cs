@@ -40,6 +40,10 @@ namespace InventoryManagmentWebApplication.Controllers
         public ActionResult Create()
         {
             ViewBag.u_roleID = new SelectList(db.roles, "r_id", "r_name");
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem() { Text = "Active", Value = "1" });
+            li.Add(new SelectListItem() { Text = "In-Active", Value = "0" });
+            ViewBag.abc = new SelectList(li, "Value", "Text");
             return View();
         }
 
@@ -73,6 +77,10 @@ namespace InventoryManagmentWebApplication.Controllers
             {
                 return HttpNotFound();
             }
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem() { Text = "Active", Value = "1" });
+            li.Add(new SelectListItem() { Text = "In-Active", Value = "0" });
+            ViewBag.abc = new SelectList(li, "Value", "Text");
             ViewBag.u_roleID = new SelectList(db.roles, "r_id", "r_name", user.u_roleID);
             return View(user);
         }

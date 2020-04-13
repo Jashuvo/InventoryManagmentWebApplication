@@ -1,5 +1,6 @@
 ﻿@model InventoryManagmentWebApplication.role
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -9,10 +10,10 @@
 </html>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<h1 style="font-family:'Segoe UI Light'">Role Management</h1>
+    <h1 style="font-family:'Segoe UI Light'">Role Management</h1>
     <div class="form-horizontal">
         <h4>Role</h4>
         <hr />
@@ -28,7 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.r_status, htmlAttributes: new { @class = "control-label col-md-4" })
             <div class="col-md-4">
-                @Html.DropDownListFor(model => model.r_status, ViewBag.abc as SelectList, htmlAttributes : new { @class = "form-control" } )
+                @Html.DropDownListFor(model => model.r_status, ViewBag.abc as SelectList, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.r_status, "", new { @class = "text-danger" })
             </div>
         </div>
